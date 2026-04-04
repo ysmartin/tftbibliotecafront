@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head(title)">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${title}">tftbibliotecafront</title>
+    <link rel="stylesheet" th:href="@{/css/app.css}">
+</head>
+<body>
+<header th:fragment="header">
+    <div class="shell-header">
+        <div>
+            <p class="eyebrow">Frontend MVC con Thymeleaf</p>
+            <h1><a th:href="@{/}">tftbibliotecafront</a></h1>
+        </div>
+        <nav class="main-nav">
+            <a th:href="@{/}">Inicio</a>
+            <a th:href="@{/obras}">Obras</a>
+        </nav>
+    </div>
+</header>
+
+<div th:fragment="messages" class="messages">
+    <p class="flash flash-ok" th:if="${successMessage}" th:text="${successMessage}"></p>
+    <p class="flash flash-error" th:if="${errorMessage}" th:text="${errorMessage}"></p>
+    <p class="flash flash-error" th:if="${pageError}" th:text="${pageError}"></p>
+</div>
+</body>
+</html>
+

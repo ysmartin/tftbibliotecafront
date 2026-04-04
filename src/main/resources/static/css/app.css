@@ -1,0 +1,249 @@
+:root {
+    --bg: #f2f4f8;
+    --surface: #ffffff;
+    --surface-alt: #eef6ff;
+    --border: #d5dce6;
+    --text: #162032;
+    --muted: #5f6f84;
+    --primary: #1363d1;
+    --primary-soft: #dbe9ff;
+    --ok-bg: #e8f7ed;
+    --ok-text: #0b6b2c;
+    --err-bg: #fdebec;
+    --err-text: #9e1b24;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text);
+    background: linear-gradient(180deg, #f9fbff 0%, var(--bg) 100%);
+}
+
+a {
+    color: var(--primary);
+}
+
+.page-shell {
+    width: min(1120px, 92vw);
+    margin: 2rem auto 3rem;
+    display: grid;
+    gap: 1rem;
+}
+
+.shell-header {
+    width: min(1120px, 92vw);
+    margin: 1.5rem auto 0;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem 1.2rem;
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    align-items: center;
+}
+
+.shell-header h1 {
+    margin: 0.2rem 0 0;
+}
+
+.shell-header h1 a {
+    text-decoration: none;
+    color: var(--text);
+}
+
+.eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.75rem;
+    margin: 0;
+    color: var(--muted);
+}
+
+.main-nav {
+    display: flex;
+    gap: 0.6rem;
+}
+
+.main-nav a {
+    text-decoration: none;
+    padding: 0.45rem 0.7rem;
+    border-radius: 8px;
+    background: var(--primary-soft);
+    color: #0f3d80;
+}
+
+.card,
+.hero,
+.table-shell {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem 1.1rem;
+}
+
+.card-accent {
+    background: var(--surface-alt);
+}
+
+.hero {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 1rem;
+}
+
+.hero-panel {
+    background: #f8fbff;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 0.7rem 0.9rem;
+    min-width: 250px;
+}
+
+.grid {
+    display: grid;
+    gap: 1rem;
+}
+
+.grid-2 {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+}
+
+.stack-form,
+.inline-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    align-items: end;
+}
+
+.stack-form {
+    flex-direction: column;
+    align-items: stretch;
+}
+
+label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    font-weight: 600;
+}
+
+input,
+textarea,
+select,
+button {
+    font: inherit;
+}
+
+input,
+textarea,
+select {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0.55rem 0.65rem;
+    background: #fff;
+}
+
+textarea {
+    min-height: 95px;
+    resize: vertical;
+}
+
+button,
+.button-link {
+    border: none;
+    border-radius: 8px;
+    background: var(--primary);
+    color: #fff;
+    text-decoration: none;
+    padding: 0.55rem 0.85rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.button-link {
+    background: #1f5ea4;
+}
+
+.messages {
+    display: grid;
+    gap: 0.5rem;
+}
+
+.flash {
+    margin: 0;
+    border-radius: 8px;
+    padding: 0.7rem 0.8rem;
+    border: 1px solid transparent;
+}
+
+.flash-ok {
+    background: var(--ok-bg);
+    color: var(--ok-text);
+    border-color: #b9ebca;
+}
+
+.flash-error {
+    background: var(--err-bg);
+    color: var(--err-text);
+    border-color: #f3c6ca;
+}
+
+.minor {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+.pill {
+    display: inline-flex;
+    padding: 0.2rem 0.5rem;
+    border-radius: 999px;
+    background: var(--primary-soft);
+    color: #0c4f9b;
+    font-size: 0.82rem;
+}
+
+.actions-inline {
+    display: flex;
+    gap: 0.6rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    border: 1px solid var(--border);
+    padding: 0.5rem 0.55rem;
+    vertical-align: top;
+    text-align: left;
+}
+
+th {
+    background: #f7f9fc;
+}
+
+@media (max-width: 760px) {
+    .shell-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+    }
+}
+

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments :: head(${pageTitle})}"></head>
+<body>
+<header th:replace="~{fragments :: header}"></header>
+<main class="page-shell">
+    <section th:replace="~{fragments :: messages}"></section>
+
+    <section class="hero">
+        <div>
+            <p class="eyebrow">Aplicacion docente</p>
+            <h2>Frontend MVC de biblioteca</h2>
+            <p>Este frontend consume la API manual de <code>tftbiblioteca</code> usando RestClient.</p>
+        </div>
+        <div class="hero-panel">
+            <p><strong>Backend:</strong> <code th:text="${@environment.getProperty('tftbiblioteca.base-url')}">http://localhost:8070</code></p>
+            <p><strong>Puerto front:</strong> <code th:text="${@environment.getProperty('local.server.port', '8071')}">8071</code></p>
+        </div>
+    </section>
+
+    <section class="card card-accent">
+        <h3>Catalogo de obras</h3>
+        <p>Listado por autor, consulta por id, alta y gestion de copia digital PDF.</p>
+        <a class="button-link" th:href="@{/obras}">Abrir gestion de obras</a>
+    </section>
+</main>
+</body>
+</html>
+
