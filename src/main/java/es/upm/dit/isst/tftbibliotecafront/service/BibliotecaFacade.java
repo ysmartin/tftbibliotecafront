@@ -3,13 +3,13 @@ package es.upm.dit.isst.tftbibliotecafront.service;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClient;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import es.upm.dit.isst.tftbibliotecafront.config.TftBibliotecaProperties;
 import es.upm.dit.isst.tftbibliotecafront.model.Obra;
 
 @Service
@@ -22,9 +22,9 @@ public class BibliotecaFacade {
     private final RestClient restClient;
     private final String baseUrl;
 
-    public BibliotecaFacade(RestClient restClient, TftBibliotecaProperties properties) {
+    public BibliotecaFacade(RestClient restClient, @Value("${tftbiblioteca.base-url}") String baseUrl) {
         this.restClient = restClient;
-        this.baseUrl = normalizeBaseUrl(properties.getBaseUrl());
+        this.baseUrl = normalizeBaseUrl(baseUrl);
     }
 
     public List<Obra> listar(String autor) {
@@ -69,7 +69,7 @@ public class BibliotecaFacade {
 
     private String normalizeBaseUrl(String rawBaseUrl) {
         if (rawBaseUrl == null || rawBaseUrl.isBlank()) {
-            return "http://localhost:8070";
+            throw new IllegalArgumentException("tftbiblioteca.base-url must be configured");
         }
         return rawBaseUrl.endsWith("/") ? rawBaseUrl.substring(0, rawBaseUrl.length() - 1) : rawBaseUrl;
     }

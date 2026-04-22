@@ -25,7 +25,8 @@ import lombok.Setter;
 @Builder
 public class Obra {
 
-    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
+    // En el cliente se rellenan al leer respuestas, pero no se envian al backend.
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Long id;
 
     @NotBlank
@@ -45,9 +46,9 @@ public class Obra {
     @Default
     private List<@NotBlank @Size(max = 50) String> palabrasClave = new ArrayList<>();
 
-    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private LocalDate fechaDeposito;
 
-    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String urlCopiaDigital;
 }
