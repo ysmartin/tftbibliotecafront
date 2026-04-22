@@ -1,5 +1,6 @@
 package es.upm.dit.isst.tftbibliotecafront.service;
 
+import java.net.URI;
 import java.util.List;
 import java.util.Optional;
 
@@ -28,9 +29,10 @@ public class BibliotecaFacade {
     }
 
     public List<Obra> listar(String autor) {
-        String uri = UriComponentsBuilder.fromUriString(baseUrl + OBRAS_PATH)
+        URI uri = UriComponentsBuilder.fromUriString(baseUrl + OBRAS_PATH)
                 .queryParamIfPresent("autor", Optional.ofNullable(blankToNull(autor)))
-                .toUriString();
+                .build()
+                .toUri();
         List<Obra> obras = restClient.get()
                 .uri(uri)
                 .retrieve()
