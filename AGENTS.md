@@ -11,6 +11,7 @@ Las decisiones actuales son intencionadamente simples. Un agente de IA debe mant
 - No introduzcas dependencias, frameworks frontend, JavaScript innecesario ni patrones avanzados sin peticion explicita.
 - Si una mejora requiere un salto tecnico importante, preguntalo o presentalo como alternativa, no lo apliques por defecto.
 - Manten el codigo didactico: controladores legibles, formularios sencillos, modelos locales claros, mensajes comprensibles y pruebas enfocadas en el flujo de usuario.
+- No elimines anotaciones, funciones o clases ya existentes solo porque no encajen del todo con estas pautas. Conserva lo preexistente salvo que sea incorrecto, rompa el comportamiento o impida implementar bien la caracteristica pedida.
 - Usa la pantalla de `Obra` como ejemplo del estado actual, no como limite. El frontend puede crecer con nuevas pantallas y formularios para futuras entidades del dominio.
 - Si implementas una historia de usuario o una feature descrita a nivel funcional, antes de escribir codigo cierra el comportamiento observable que falta por concretar: pantallas implicadas, rutas MVC, formularios, mensajes, redirecciones, contexto de navegacion y verificaciones visibles para el usuario.
 - Cuando el enunciado de una historia de usuario no fije esos detalles, deducelos a partir del codigo existente, las pruebas, los contratos vigentes del backend y el estilo del proyecto, eligiendo siempre la solucion mas pequena y coherente.
