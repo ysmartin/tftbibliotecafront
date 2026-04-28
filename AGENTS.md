@@ -24,6 +24,7 @@ Las decisiones actuales son intencionadamente simples. Un agente de IA debe mant
 - `RestClient` para consumir el backend de forma manual y legible.
 - Una fachada fina que oculte URLs, detalles HTTP y traducción de errores del backend.
 - Modelos locales sencillos cuando ayuden a desacoplar la vista del JSON recibido.
+- Los modelos locales que representan datos del backend pueden llevar anotaciones de Bean Validation con valor documental y didáctico, aunque no sean los objetos validados por los formularios MVC.
 - Un único CSS sencillo en `static/css` para evitar apariencia de HTML plano.
 - Spring Security puede estar presente, pero con `SecurityConfig` permisivo mientras no exista autenticación real.
 
@@ -40,6 +41,7 @@ Las decisiones actuales son intencionadamente simples. Un agente de IA debe mant
 - Mantén mensajes flash para éxitos y errores recuperables.
 - Conserva el contexto de navegación en parámetros o formularios ocultos cuando ayude a no perder filtros o selección.
 - Crea formularios locales cuando la vista necesite campos distintos del payload REST exacto, como valores CSV, ficheros subidos o contexto de pantalla.
+- Coloca la validación efectiva de entradas de usuario en los formularios de `web/form` que usa la vista, y mantén esas reglas coherentes con las anotaciones documentales de los modelos locales cuando cambie el contrato.
 - Traduce errores HTTP del backend a mensajes comprensibles para la UI sin exponer detalles técnicos innecesarios.
 
 ## Interfaz
